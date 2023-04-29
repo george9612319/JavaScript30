@@ -13,7 +13,6 @@
       </div>
     </div>
   </div>
-
 <style>
   html {
     box-sizing: border-box;
@@ -39,11 +38,24 @@
   .three {
     background: coral;
   }
-</style>
 
+  button {
+    background: black;
+    width:20px;
+  }
+</style>
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
 
+  function logText(e) {
+    console.log(this.classList.value);
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {capture: false, once:true}));
+
+  button.addEventListener('click', (event) => {console.log ('Click!')},{once: true});
 </script>
 </body>
 </html>
